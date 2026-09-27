@@ -21,6 +21,21 @@ npm run dev
 
 Abre la dirección local que muestra Vite. `npm run build` genera la versión estática en `dist`; `npm run preview` permite probarla. No abras `index.html` con `file://`: los módulos necesitan un servidor HTTP.
 
+## Publicar en GitHub Pages
+
+El juego funciona como una web estática: la simulación, los gráficos y el audio se ejecutan en el navegador. Node.js se utiliza para compilar, no como servidor en producción.
+
+1. Crea el repositorio en GitHub y sube el proyecto, incluyendo `package-lock.json` y `.github/workflows/pages.yml`. No subas `node_modules` ni `dist` (ya están ignorados).
+2. En **Settings → Pages → Build and deployment → Source**, selecciona **GitHub Actions**.
+3. Haz un push a la rama predeterminada (`main` o `master`). También puedes ejecutar **Actions → Publish game to GitHub Pages → Run workflow** desde esa rama si ya habías subido el código antes de activar Pages.
+4. Al terminar, la dirección del juego aparece en el despliegue y en **Settings → Pages**. Normalmente será `https://TU-USUARIO.github.io/TU-REPOSITORIO/`.
+
+El workflow instala las dependencias, ejecuta las pruebas, compila y publica únicamente `dist`. Los siguientes pushes actualizan el juego automáticamente. Las rutas relativas de Vite permiten elegir cualquier nombre de repositorio sin modificar el código. Si tu rama predeterminada tiene otro nombre, añádelo a `on.push.branches` en el workflow.
+
+Los jugadores solo necesitan abrir el enlace en un navegador compatible con WebGL. Los récords y preferencias siguen guardándose en ese navegador; no se sincronizan entre dispositivos. GitHub Pages está disponible para repositorios públicos con GitHub Free; los privados requieren un plan compatible.
+
+Documentación oficial: [publicación con GitHub Actions](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) y [despliegue estático de Vite](https://vite.dev/guide/static-deploy).
+
 ## Objetivo y controles
 
 El convoy transporta una carga inestable y avanza automáticamente. Derriba las estructuras que bloquean la carretera antes de que llegue: los bloqueos consumen su integridad. Ganas cuando alcanza la salida; pierdes si la integridad llega a cero.

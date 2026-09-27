@@ -82,5 +82,5 @@ export function createRetroKit(){
     lastTrack+=dt;if(moving&&Math.abs(player.speed)>2&&lastTrack>.09){lastTrack=0;const s=Math.sin(player.angle),c=Math.cos(player.angle);for(const side of [-1,1]){const track=block(parent,player.x+side*1.4*c,.11,player.z-side*1.4*s,.65,.015,1.4,solid(0x504638));track.rotation.y=player.angle;track.castShadow=false;tracks.push(track)}if(Math.random()<.6)puff(parent,player.x-s*2,.6,player.z-c*2,1.3);while(tracks.length>180)tracks.shift().removeFromParent()}
   }
   function clearEffects(){for(const p of particles){p.sprite.removeFromParent();p.sprite.material.dispose()}particles.length=0;tracks.length=0;lastTrack=0}
-  return {building,terrain,convoy,vehicle,radar,explosion,update,clearEffects};
+  return {building,terrain,convoy,vehicle,radar,explosion,update,clearEffects,ground};
 }

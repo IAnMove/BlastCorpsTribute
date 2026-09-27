@@ -47,6 +47,7 @@ El convoy transporta una carga inestable y avanza automáticamente. Derriba las 
 | Habilidad de demolición | Espacio |
 | Turbo | Shift |
 | Dozer / Drifter / Titan | 1 / 2 / 3 |
+| Activar terminal cercano / abrir compuerta | E (botón E en móvil) |
 | Pausar / continuar | Esc |
 | Reiniciar misión | R |
 | Ajustar cámara | Rueda del ratón |
@@ -54,7 +55,22 @@ El convoy transporta una carga inestable y avanza automáticamente. Derriba las 
 
 Dozer es equilibrado; Drifter tiene más velocidad y una habilidad de área; Titan es lento pero su onda sísmica alcanza varios edificios. Puedes cambiar de vehículo en cualquier momento de la partida. La habilidad y el turbo consumen energía, que se regenera. Los cubos con una cruz representan equipos de evacuación: recogerlos da puntos y recarga la energía.
 
-Incluye tres misiones, daño gradual, escombros, combinaciones de puntuación, minimapa, pausa automática al perder foco, efectos de sonido sintetizados, controles táctiles y récords locales por misión. El sonido empieza silenciado y se activa con el botón ♪. Las fuentes web son opcionales; hay fuentes locales de reserva.
+Incluye siete misiones, daño gradual, escombros, combinaciones de puntuación, minimapa, pausa manual, efectos de sonido sintetizados, controles táctiles y récords locales por misión. El sonido empieza silenciado y se activa con el botón ♪. Las fuentes web son opcionales; hay fuentes locales de reserva.
+
+## Campaña ampliada
+
+Las operaciones 01–03 conservan los recorridos de iniciación. Las cuatro siguientes son mapas diseñados a mano, disponibles desde el selector:
+
+| Operación | Escenario y objetivos |
+| --- | --- |
+| 04 · Muelles de contrabando | Ruta en zigzag entre almacenes, canal navegable solo por el puente y compuerta que se abre desde un terminal. |
+| 05 · Reacción en cadena | Refinería con depósitos rojos explosivos, bloques blindados, tuberías y cierre de seguridad. |
+| 06 · Garganta del trueno | Carretera de montaña, derrumbes destructibles, dos puentes sobre un cañón y dos terminales de barrera. |
+| 07 · Apagón en la central | Operación nocturna con ruta en espiral, dos subestaciones, doce bloqueos y cinco equipos de rescate. |
+
+El convoy recorre las curvas de la carretera y gira en los cruces. Los terminales aparecen como cuadrados azules en el mapa: acércate y pulsa **E**. Activarlos abre su barrera, da 750 puntos y recarga la energía. Las compuertas cerradas no se derriban a golpes. Los depósitos rojos dañan estructuras cercanas al explotar; Titan es especialmente eficaz contra los bloques blindados. El agua y el cañón impiden el paso fuera de los puentes. Los rescates son opcionales y aumentan la puntuación.
+
+Ambos estilos, N64 y HD, comparten objetivos y geometría de colisiones; cambiar el estilo conserva terminales, destrucción y posición del convoy. `src/levels.js` define los mapas y `src/campaign-scene.js` sus elementos visuales. Las pruebas de campaña completan los cuatro mapas usando conducción, habilidades y terminales.
 
 ## Desarrollo y comprobaciones
 

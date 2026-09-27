@@ -2,6 +2,12 @@
 
 Juego de demolición 3D para navegador inspirado en la mecánica de Blast Corps. Escenarios y modelos originales creados con geometría procedural; no requiere ROMs ni recursos de Nintendo o Rare.
 
+El aspecto **N64** está activado por defecto: texturas pequeñas de tierra, hierba y ladrillo; almacenes con tejados a dos aguas; transporte rojo con dos misiles; vehículos amarillos; cámara cercana; resolución interna de 360 líneas; radar circular, flecha verde y marcador clásico. Incluye fuego, humo y marcas de orugas. Es una recreación visual con recursos propios, no los modelos o texturas extraídos del original.
+
+El botón **N64 / HD** cambia entre la estética clásica y la presentación moderna anterior sin reiniciar la misión. La selección se recuerda en el navegador.
+
+Referencias visuales consultadas: [Rare Gamer, Carrier Mission Guide](https://www.raregamer.co.uk/games/blast-corps-carrier-mission-guide/) y [Nintendo Life, Blast Corps](https://www.nintendolife.com/reviews/n64/blast-corps). Las capturas en `references/` son solo referencias de desarrollo y no se distribuyen con el juego compilado.
+
 ## Jugar
 
 En Windows, abre **Jugar.bat**. Requiere Node.js 22.12 o posterior (también funciona con 20.19+).
@@ -17,7 +23,7 @@ Abre la dirección local que muestra Vite. `npm run build` genera la versión es
 
 ## Objetivo y controles
 
-El convoy transporta una carga inestable y avanza automáticamente. Derriba las estructuras marcadas en naranja antes de que llegue: los bloqueos consumen su integridad. Ganas cuando alcanza la salida; pierdes si la integridad llega a cero.
+El convoy transporta una carga inestable y avanza automáticamente. Derriba las estructuras que bloquean la carretera antes de que llegue: los bloqueos consumen su integridad. Ganas cuando alcanza la salida; pierdes si la integridad llega a cero.
 
 | Acción | Control |
 | --- | --- |
@@ -31,7 +37,7 @@ El convoy transporta una carga inestable y avanza automáticamente. Derriba las 
 | Ajustar cámara | Rueda del ratón |
 | Activar sonido | Botón ♪ |
 
-Dozer es equilibrado; Drifter tiene más velocidad y una habilidad de área; Titan es lento pero su onda sísmica alcanza varios edificios. Puedes cambiar de vehículo en cualquier momento de la partida. La habilidad y el turbo consumen energía, que se regenera. Los cubos verdes representan equipos de evacuación: recogerlos da puntos y recarga la energía.
+Dozer es equilibrado; Drifter tiene más velocidad y una habilidad de área; Titan es lento pero su onda sísmica alcanza varios edificios. Puedes cambiar de vehículo en cualquier momento de la partida. La habilidad y el turbo consumen energía, que se regenera. Los cubos con una cruz representan equipos de evacuación: recogerlos da puntos y recarga la energía.
 
 Incluye tres misiones, daño gradual, escombros, combinaciones de puntuación, minimapa, pausa automática al perder foco, efectos de sonido sintetizados, controles táctiles y récords locales por misión. El sonido empieza silenciado y se activa con el botón ♪. Las fuentes web son opcionales; hay fuentes locales de reserva.
 

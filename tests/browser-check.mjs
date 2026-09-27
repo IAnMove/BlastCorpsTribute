@@ -20,6 +20,19 @@ try{
   await page.keyboard.press('Space');await page.waitForTimeout(300);
   assert.ok(await page.evaluate(()=>__blast.game.cleared>0),'Titan should demolish a route obstacle');
   await page.screenshot({path:'test-results/game-desktop.png'});
+  await page.keyboard.down('KeyW');
+  const timeBeforeBlur=await page.evaluate(()=>{
+    const time=__blast.game.time;
+    for(let i=0;i<3;i++)window.dispatchEvent(new Event('blur'));
+    Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});
+    document.dispatchEvent(new Event('visibilitychange'));
+    delete document.hidden;
+    return time;
+  });
+  await page.waitForFunction(t=>__blast.game.time>t+.1&&__blast.game.player.speed===0,timeBeforeBlur);
+  await page.keyboard.up('KeyW');
+  assert.equal(await page.evaluate(()=>__blast.mode),'playing','Losing focus must not pause the game');
+  assert.equal(await page.locator('#modal').isVisible(),false,'Losing focus must not open a dialog');
   await page.keyboard.press('Escape');
   const pausedTime=await page.evaluate(()=>__blast.game.time);await page.waitForTimeout(350);
   assert.equal(await page.evaluate(()=>__blast.game.time),pausedTime);
